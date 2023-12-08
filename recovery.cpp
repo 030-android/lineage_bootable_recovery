@@ -186,7 +186,7 @@ bool ask_to_ab_reboot(Device* device) {
 }
 
 bool ask_to_continue_unverified(Device* device) {
-  if (!IsDeviceUnlocked()) {
+  if (get_build_type() == "user") {
     return false;
   } else {
     device->GetUI()->SetProgressType(RecoveryUI::EMPTY);
@@ -195,7 +195,7 @@ bool ask_to_continue_unverified(Device* device) {
 }
 
 bool ask_to_continue_downgrade(Device* device) {
-  if (!IsDeviceUnlocked()) {
+  if (get_build_type() == "user") {
     return false;
   } else {
     device->GetUI()->SetProgressType(RecoveryUI::EMPTY);
