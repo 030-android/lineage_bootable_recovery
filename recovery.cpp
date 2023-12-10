@@ -130,10 +130,6 @@ static bool IsRoDebuggable() {
   return android::base::GetBoolProperty("ro.debuggable", false);
 }
 
-static bool IsDeviceUnlocked() {
-  return "orange" == android::base::GetProperty("ro.boot.verifiedbootstate", "");
-}
-
 // Clear the recovery command and prepare to boot a (hopefully working) system,
 // copy our log file to cache as well (for the system to read). This function is
 // idempotent: call it as many times as you like.
